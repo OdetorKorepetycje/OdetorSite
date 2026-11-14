@@ -1,0 +1,49 @@
+body{
+    margin: 0;
+}
+.germania-one-regular {
+  font-family: "Germania One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+.unifrakturmaguntia-regular {
+  font-family: "UnifrakturMaguntia", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+header{
+    background-color: #0f3460;
+    text-align: center;
+    padding: 15px;
+}
+header h1{
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+}
+.Ode{
+    font-family: "Germania One", system-ui;
+}
+.NavBar ul{
+    list-style-type: none;
+    background-color: gray;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+.NavBar a{
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+    text-align: center;
+}
+.NavBar a:hover{
+    background-color: black;
+}
+footer{
+    background-color: aqua;
+    text-align: center;
+    padding: 15px;
+}
