@@ -1,6 +1,8 @@
 body{
     margin: 0;
 }
+
+/* FONTS from google */
 .germania-one-regular {
   font-family: "Germania One", system-ui;
   font-weight: 400;
@@ -11,6 +13,13 @@ body{
   font-weight: 400;
   font-style: normal;
 }
+.cantata-one-regular {
+  font-family: "Cantata One", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
 header{
     background-color: #0f3460;
     text-align: center;
@@ -18,7 +27,7 @@ header{
 }
 header h1{
     color: white;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: "Cantata One", serif;
 }
 .Ode{
     font-family: "Germania One", system-ui;
@@ -31,6 +40,7 @@ header h1{
     overflow: hidden;
     display: flex;
     justify-content: center;
+    font-family: "Cantata One", serif;
 }
 .NavBar a{
     color: white;
