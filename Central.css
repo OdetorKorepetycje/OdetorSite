@@ -1,5 +1,10 @@
 body{
     margin: 0;
+    background-color: #16213e;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* FONTS from google */
@@ -18,42 +23,82 @@ body{
   font-weight: 400;
   font-style: normal;
 }
+.merriweather-<uniquifier> {
+  font-family: "Merriweather", serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
 
-
+/* Header */
 header{
     background-color: #0f3460;
     text-align: center;
     padding: 15px;
+    background-image: url("imgs/marble.jpg");
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
 }
 header h1{
     color: white;
-    font-family: "Cantata One", serif;
+    font-family: "Merriweather", serif;
 }
 .Ode{
     font-family: "Germania One", system-ui;
 }
-.NavBar ul{
+
+/* Navigation */
+.NavBar ul {
     list-style-type: none;
-    background-color: gray;
+    background-color: #ddad65;
     padding: 0;
     margin: 0;
-    overflow: hidden;
     display: flex;
-    justify-content: center;
-    font-family: "Cantata One", serif;
+    justify-content: space-between;
+    align-items: stretch;
+    font-family: "Merriweather", serif;
 }
-.NavBar a{
+.NavBar li {
+    flex: 1; /* Each button takes up an equal 25% of the bar */
+    display: flex;
+}
+.NavBar a {
     color: white;
     text-decoration: none;
-    padding: 15px;
-    display: block;
+    /* Padding scales from 10px/4px on mobile up to 16px/24px on PC */
+    padding: clamp(10px, 1.5vw, 16px) clamp(4px, 2vw, 24px);
+    /* Font size scales from 0.8rem on mobile up to 1.2rem on PC */
+    font-size: clamp(0.8rem, 1.5vw, 1.1rem);
+    width: 100%;
+    display: flex;
+    align-items: center; /* Vertically centers KONTAKT and CENNIK */
+    justify-content: center;
     text-align: center;
+    font-weight: bolder;
 }
 .NavBar a:hover{
-    background-color: black;
+    background-color: #0f3460;
+    /* background-image: url("imgs/marble.jpg"); not 100% good */
 }
+
+/*Main*/
+main{
+    font-family: "Merriweather", serif;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Footer */
 footer{
-    background-color: aqua;
+    background-color: grey;
     text-align: center;
-    padding: 15px;
+    padding: 5px;
+    margin-top: auto; /* Pushes the footer to the bottom */
+    background-color: #0f3460;
+    font-family: "Merriweather", serif;
+    font-size: 13px;
+    background-image: url("imgs/marble.jpg");
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+    font-weight: 700;
 }
