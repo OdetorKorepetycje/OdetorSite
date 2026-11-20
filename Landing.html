@@ -22,7 +22,10 @@
     </header>
 
     <nav class="NavBar">
-        <ul>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="nav-list" aria-label="Otwórz menu">
+            ☰ MENU
+        </button>
+        <ul id="nav-list">
             <li><a href="Landing.html">STRONA GŁÓWNA</a></li>
             <li><a href="Contact.html">KONTAKT</a></li>
             <li><a href="Price.html">CENNIK</a></li>
@@ -31,13 +34,29 @@
     </nav>
 
     <main>
-        <img src="imgs/books4.png" alt="">
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor ea modi dolorum qui nesciunt eius accusamus a ex at, voluptatum hic non consequatur? Aliquam molestiae eaque, totam nostrum magnam impedit!</p>
+        <section class="HeroHeader">
+            <h1>ANGIELSKI<br>PŁYNIEJ</h1>
+            <button>ZAPISZ SIĘ JUŻ DZIŚ!</button>
+        </section>
+        <section>
+            hi. is me Pablo!
+        </section>
+        
     </main>
 
     <footer>
         <p>© 2026 PAWEL MAREK GIELAROWIEC. All Rights Reserved.</p>
     </footer>
 
+<script>
+    const toggleBtn = document.querySelector('.menu-toggle');
+    const navList = document.getElementById('nav-list');
+
+    toggleBtn.addEventListener('click', () => {
+        const isOpen = navList.classList.toggle('open');
+        toggleBtn.setAttribute('aria-expanded', isOpen);
+        toggleBtn.textContent = isOpen ? '✕ ZAMKNIJ' : '☰ MENU';
+    });
+</script>
 </body>
 </html>

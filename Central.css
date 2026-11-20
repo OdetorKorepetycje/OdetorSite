@@ -59,27 +59,85 @@ header h1{
     align-items: stretch;
     font-family: "Merriweather", serif;
 }
+
 .NavBar li {
-    flex: 1; /* Each button takes up an equal 25% of the bar */
+    flex: 1; /* Each button takes up an equal 25% of the bar on desktop */
     display: flex;
 }
+
 .NavBar a {
     color: white;
     text-decoration: none;
-    /* Padding scales from 10px/4px on mobile up to 16px/24px on PC */
     padding: clamp(10px, 1.5vw, 16px) clamp(4px, 2vw, 24px);
-    /* Font size scales from 0.8rem on mobile up to 1.2rem on PC */
-    font-size: clamp(0.8rem, 1.5vw, 1.1rem);
+    font-size: clamp(0.8rem, 1.5vw, 1.3rem);
     width: 100%;
     display: flex;
-    align-items: center; /* Vertically centers KONTAKT and CENNIK */
+    align-items: center;
     justify-content: center;
     text-align: center;
     font-weight: bolder;
 }
-.NavBar a:hover{
+
+.NavBar a:hover {
     background-color: #0f3460;
-    /* background-image: url("imgs/marble.jpg"); not 100% good */
+}
+
+/* Hide hamburger button on desktop */
+.menu-toggle {
+    display: none;
+}
+
+/* Mobile Expanding Menu */
+@media (max-width: 768px) {
+    .NavBar {
+        background-color: #ddad65;
+    }
+
+    .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+        padding: 1rem;
+        background-color: #ddad65;
+        color: white;
+        border: none;
+        font-family: "Merriweather", serif;
+        font-size: 1.25rem;
+        font-weight: bolder;
+        cursor: pointer;
+    }
+
+    .menu-toggle:hover {
+        background-color: #0f3460;
+    }
+
+    .NavBar ul {
+        display: none; /* Collapsed by default on mobile */
+        flex-direction: column;
+        border-top: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+    .NavBar ul.open {
+        display: flex; /* Expands when clicked */
+    }
+
+    .NavBar li {
+        flex: none;
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .NavBar li:last-child {
+        border-bottom: none;
+    }
+
+    .NavBar a {
+        padding: 1rem 1.25rem;
+        font-size: 1.25rem; /* Large and easy to read/tap */
+        white-space: nowrap; /* Keeps "STRONA GŁÓWNA" and "PORTAL STUDENTA" on one clean line */
+    }
 }
 
 /*Main*/
@@ -87,6 +145,77 @@ main{
     font-family: "Merriweather", serif;
     display: flex;
     flex-direction: column;
+}
+
+main img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* removes tiny whitespace gap underneath the image */
+}
+
+.HeroHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* centers items vertically as a group */
+    align-items: center;     /* centers items horizontally */
+    gap: clamp(1.5rem, 4vh, 3rem); /* clean spacing between h1 and button */
+    padding: clamp(2rem, 6vh, 4rem) clamp(1rem, 4vw, 3rem); /* breathing room from edges */
+    min-height: 100vh;       /* standard full viewport height */
+    text-align: center;
+
+    /* If your CSS is in a subfolder like /css/, change to "../imgs/bBooks.png" */
+    background-image: url("imgs/bBooks.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.HeroHeader h1 {
+    margin: 0;
+    font-family: "Merriweather", serif;
+    /* Scales smoothly between 3rem (48px) and 9rem (144px) based on viewport width */
+    font-size: clamp(3rem, 15vw, 18rem);
+    line-height: 1.05;
+    font-weight: 800;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.HeroHeader button {
+    font-family: "Merriweather", serif;
+    /* Scales smoothly between 1.125rem (18px) and 2.5rem (40px) */
+    font-size: clamp(1.125rem, 2.5vw, 2.5rem);
+    padding: clamp(0.75rem, 1.5vw, 1.25rem) clamp(1.5rem, 3vw, 2.5rem);
+    cursor: pointer;
+    border-radius: 2rem;
+    background-color: #0f3460;
+    color: white;
+    font-weight: 600;
+    border: 0px;
+    text-decoration: underline;
+}
+
+.HeroHeader button:hover {
+    background-color: #ddad65;
+}
+
+
+/* Compact banner on mobile screens */
+@media (max-width: 768px) {
+    .HeroHeader {
+        min-height: auto;      /* lets content control height instead of forcing a tall box */
+        height: clamp(15rem, 20vw, 30rem);;
+        padding: 1.5rem 1rem;  /* compact top/bottom band */
+        gap: 1.2rem;          /* tighter space between title and button */
+    }
+
+    .HeroHeader h1 {
+        font-size: clamp(3rem, 8vw, 5rem); /* smaller so two lines stay short */
+    }
+
+    .HeroHeader button {
+        font-size: 1.2rem;
+        padding: 0.5rem 1rem;
+    }
 }
 
 /* Footer */
@@ -97,7 +226,7 @@ footer{
     margin-top: auto; /* Pushes the footer to the bottom */
     background-color: #0f3460;
     font-family: "Merriweather", serif;
-    font-size: 13px;
+    font-size: clamp(0.5rem, 3vw, 0.8rem);
     background-image: url("imgs/marble.jpg");
     text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
     font-weight: 700;
